@@ -85,6 +85,15 @@ function renderGlutenFreeCrust() {
 
 function renderButtons() {
   // Iteration 3: add/remove the class "active" of each `<button class="btn">`
+  document.querySelectorAll('.btn').forEach((button) => {
+    button.addEventListener('click', function () {
+    if(!button.classList.contains("active")) {
+      button.classList.add("active");
+    } else if(button.classList.contains("active")) {
+      button.classList.remove("active");
+    }
+    });
+  });
 }
 
 function renderPrice() {
