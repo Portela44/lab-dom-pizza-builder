@@ -85,15 +85,48 @@ function renderGlutenFreeCrust() {
 
 function renderButtons() {
   // Iteration 3: add/remove the class "active" of each `<button class="btn">`
+  /*first attempt*/ /*
   document.querySelectorAll('.btn').forEach((button) => {
     button.addEventListener('click', function () {
-    if(!button.classList.contains("active")) {
-      button.classList.add("active");
-    } else if(button.classList.contains("active")) {
-      button.classList.remove("active");
-    }
+      if(!button.classList.contains("active")) {
+        button.classList.add("active");
+      } else if(button.classList.contains("active")) {
+        button.classList.remove("active");
+      }
     });
-  });
+  }); */
+
+  /*Second attempt*/
+  const pepperoniSelector = document.querySelector('.btn-pepperoni');
+  if((state.pepperoni)&&(!pepperoniSelector.classList.contains("active"))) {
+    pepperoniSelector.classList.add("active");
+  } else if ((!state.pepperoni)&&(pepperoniSelector.classList.contains("active"))) {
+    pepperoniSelector.classList.remove("active");
+  }
+  const mushroomSelector = document.querySelector('.btn-mushrooms');
+  if((state.mushrooms)&&(!mushroomSelector.classList.contains("active"))) {
+    mushroomSelector.classList.add("active");
+  } else if ((!state.mushrooms)&&(mushroomSelector.classList.contains("active"))) {
+    mushroomSelector.classList.remove("active");
+  }
+  const pepperSelector = document.querySelector('.btn-green-peppers');
+  if((state.greenPeppers)&&(!pepperSelector.classList.contains("active"))) {
+    pepperSelector.classList.add("active");
+  } else if ((!state.greenPeppers)&&(pepperSelector.classList.contains("active"))) {
+    pepperSelector.classList.remove("active");
+  }
+  const sauceSelector = document.querySelector('.btn-sauce');
+  if((state.whiteSauce)&&(!sauceSelector.classList.contains("active"))) {
+    sauceSelector.classList.add("active");
+  } else if ((!state.whiteSauce)&&(sauceSelector.classList.contains("active"))) {
+    sauceSelector.classList.remove("active");
+  }
+  const glutenFreeSelector = document.querySelector('.btn-crust');
+  if((state.glutenFreeCrust)&&(!glutenFreeSelector.classList.contains("active"))) {
+    glutenFreeSelector.classList.add("active");
+  } else if ((!state.glutenFreeCrust)&&(glutenFreeSelector.classList.contains("active"))) {
+    glutenFreeSelector.classList.remove("active");
+  }
 }
 
 function renderPrice() {
