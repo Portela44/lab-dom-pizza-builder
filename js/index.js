@@ -131,6 +131,40 @@ function renderButtons() {
 
 function renderPrice() {
   // Iteration 4: change the HTML of `<aside class="panel price">`
+  let totalPrice = 10;
+  const totalPriceHere = document.getElementsByTagName("strong");
+  const priceList = document.getElementsByClassName("ingredients");
+  if(state.pepperoni) {
+    totalPrice += Number(priceList[0].innerHTML[1]);
+    priceList[0].style ="visibility:visible";
+  } else if (!state.pepperoni) {
+    priceList[0].style ="visibility:hidden";
+  }
+  if(state.mushrooms) {
+    totalPrice += Number(priceList[1].innerHTML[1]);
+    priceList[1].style ="visibility:visible";
+  } else if (!state.mushrooms) {
+    priceList[1].style ="visibility:hidden";
+  }
+  if(state.greenPeppers) {
+    totalPrice += Number(priceList[2].innerHTML[1]);
+    priceList[2].style ="visibility:visible";
+  } else if (!state.greenPeppers) {
+    priceList[2].style ="visibility:hidden";
+  }
+  if(state.whiteSauce) {
+    totalPrice += Number(priceList[3].innerHTML[1]);
+    priceList[3].style ="visibility:visible";
+  } else if (!state.whiteSauce) {
+    priceList[3].style ="visibility:hidden";
+  }
+  if(state.glutenFreeCrust) {
+    totalPrice += Number(priceList[4].innerHTML[1]);
+    priceList[4].style ="visibility:visible";
+  } else if (!state.glutenFreeCrust) {
+    priceList[4].style ="visibility:hidden";
+  }
+  totalPriceHere[0].innerHTML = `$${totalPrice}`;
 }
 
 renderEverything();
